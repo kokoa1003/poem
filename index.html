@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>詩の入口</title>
+    <meta
+      name="description"
+      content="感情を選ぶだけで、その気分に合う短い詩が生まれるWebアプリ"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="app-header">
+        <p class="eyebrow">Poetry Moment</p>
+        <h1>詩の入口</h1>
+        <p class="lead">
+          いまの気分を選ぶだけで、短い詩がひとつ生まれます。
+        </p>
+      </header>
+
+      <main class="workspace">
+        <section class="control-area" aria-labelledby="emotion-title">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Feeling</p>
+              <h2 id="emotion-title">いまの感情</h2>
+            </div>
+            <button id="random-button" class="icon-text-button" type="button" aria-label="感情をランダムに選ぶ">
+              ↻
+              <span>おまかせ</span>
+            </button>
+          </div>
+
+          <div id="emotion-grid" class="emotion-grid" aria-label="感情を選択"></div>
+
+          <div class="tuning-grid">
+            <label class="field range-field">
+              <span>感情の濃さ</span>
+              <input id="intensity-range" type="range" min="1" max="5" value="3" />
+            </label>
+
+            <label class="field">
+              <span>言葉の年齢</span>
+              <select id="voice-select">
+                <option value="neutral">そのまま</option>
+                <option value="young">幼い</option>
+                <option value="adult">大人</option>
+              </select>
+            </label>
+
+            <label class="field topic-field">
+              <span>入れたい言葉</span>
+              <input id="topic-input" type="text" maxlength="16" placeholder="雨、駅、放課後など" />
+            </label>
+          </div>
+        </section>
+
+        <section id="poem-card" class="poem-card" aria-live="polite">
+          <div class="poem-toolbar">
+            <p id="poem-emotion-label" class="poem-tag">落ち着いてる</p>
+            <button id="copy-button" class="icon-button" type="button" aria-label="詩をコピー">□</button>
+          </div>
+          <p id="poem-text" class="poem-text"></p>
+          <div class="poem-actions">
+            <button id="generate-button" class="primary-button" type="button">もう一度つくる</button>
+            <button id="save-button" class="secondary-button" type="button">残す</button>
+          </div>
+        </section>
+
+        <section class="saved-area" aria-labelledby="saved-title">
+          <div class="section-head compact">
+            <div>
+              <p class="eyebrow">Collection</p>
+              <h2 id="saved-title">残した詩</h2>
+            </div>
+            <button id="clear-button" class="text-button" type="button">クリア</button>
+          </div>
+          <div id="saved-list" class="saved-list"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
